@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\PersonneController;
+use App\Http\Controllers\Api\PeopleController;
 
-// Route::apiResource('personnes', PersonneController::class);
-
-Route::prefix('personnes')->group(function () {
-    Route::get('/', [PersonneController::class, 'index']);
-    Route::post('/', [PersonneController::class, 'store']);
-    Route::get('/{id}', [PersonneController::class, 'show']);
-    Route::put('/{id}', [PersonneController::class, 'update']);
-    Route::delete('/{id}', [PersonneController::class, 'destroy']);
-});
+Route::apiResource('people', PeopleController::class);
+//OR
+// Route::prefix('people')->group(function () {
+//     Route::get('/', [PeopleController::class, 'index']);
+//     Route::post('/', [PeopleController::class, 'store']);
+//     Route::get('/{id}', [PeopleController::class, 'show']);
+//     Route::put('/{id}', [PeopleController::class, 'update']);
+//     Route::delete('/{id}', [PeopleController::class, 'destroy']);
+// });

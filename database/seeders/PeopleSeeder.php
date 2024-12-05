@@ -7,18 +7,18 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 
-class PersonneSeeder extends Seeder
+class PeopleSeeder extends Seeder
 {
     public function run()
     {
-        $faker = Faker::create('fr_FR'); // Utilisation de Faker en français
+        $faker = Faker::create('fr_FR');
 
-        // Générer 50 personnes fictives
+        // Generate 50 fake people
         for ($i = 0; $i < 50; $i++) {
-            DB::table('personnes')->insert([
+            DB::table('people')->insert([
                 'id' => Str::uuid(),
-                'prenom' => $faker->firstName,
-                'nom' => $faker->lastName,
+                'first_name' => $faker->firstName,
+                'last_name' => $faker->lastName,
                 'created_at' => now(),
                 'updated_at' => now()
             ]);

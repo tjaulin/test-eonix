@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Personne extends Model
+class People extends Model
 {
+    use HasFactory;
+
     public $incrementing = false;
+    protected $table = 'people';
     protected $keyType = 'string';
 
-    protected $fillable = ['prenom', 'nom'];
+    protected $fillable = ['first_name', 'last_name'];
 
     protected static function boot()
     {
