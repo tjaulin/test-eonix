@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class PeopleController extends Controller
 {
+    /**
+     * Returns a list of people, with optional filtering by first name and/or last name.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
         $query = People::query();
@@ -25,6 +31,12 @@ class PeopleController extends Controller
         ]);
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -36,12 +48,26 @@ class PeopleController extends Controller
         return response()->json($people, 201);
     }
 
+
+    /**
+     * Display the specified person.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show(string $id)
     {
         $people = People::findOrFail($id);
         return response()->json($people);
     }
 
+    /**
+     * Update the specified person in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param string $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, string $id)
     {
         $people = People::findOrFail($id);
@@ -55,6 +81,12 @@ class PeopleController extends Controller
         return response()->json($people);
     }
 
+    /**
+     * Remove the specified person from storage.
+     *
+     * @param string $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(string $id)
     {
         $people = People::findOrFail($id);
